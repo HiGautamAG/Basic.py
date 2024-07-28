@@ -1,0 +1,93 @@
+def constant_space(n):
+    """O(1) space complexity"""
+    count = 0
+    for i in range(n):
+        count += i
+    return count
+
+def linear_space(n):
+    """O(n) space complexity"""
+    arr = []
+    for i in range(n):
+        arr.append(i)
+    return arr
+
+def quadratic_space(n):
+    """O(n^2) space complexity"""
+    matrix = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(i * j)
+        matrix.append(row)
+    return matrix
+
+def logarithmic_space(n):
+    """O(log n) space complexity - typically for recursive algorithms with log depth"""
+    if n <= 1:
+        return 1
+    else:
+        return n + logarithmic_space(n // 2)
+
+# Example usage and printing the space complexity
+print("Space Complexity Examples:")
+
+n = 10
+
+print("\n1. Constant Space (O(1)):")
+print("Result:", constant_space(n))
+print("Space Complexity: O(1)")
+
+print("\n2. Linear Space (O(n)):")
+print("Result:", linear_space(n))
+print("Space Complexity: O(n)")
+
+print("\n3. Quadratic Space (O(n^2)):")
+print("Result:", quadratic_space(n))
+print("Space Complexity: O(n^2)")
+
+print("\n4. Logarithmic Space (O(log n)):")
+print("Result:", logarithmic_space(n))
+print("Space Complexity: O(log n)")
+
+
+
+
+# space complexity examples
+
+
+import sys
+
+def print_space_complexity(obj, name):
+    size = sys.getsizeof(obj)
+    print(f"Space complexity of {name}: {size} bytes")
+
+# Examples of various data structures and objects
+
+
+integer = 42
+float_num = 42.0
+string = "Hello, world!"
+list_example = [1, 2, 3, 4, 5]
+tuple_example = (1, 2, 3, 4, 5)
+set_example = {1, 2, 3, 4, 5}
+dict_example = {"one": 1, "two": 2, "three": 3}
+custom_object = type('CustomObject', (object,), {})()
+
+# Print space complexity of each object
+
+print_space_complexity(integer, "Integer")
+print_space_complexity(float_num, "Float")
+print_space_complexity(string, "String")
+print_space_complexity(list_example, "List")
+print_space_complexity(tuple_example, "Tuple")
+print_space_complexity(set_example, "Set")
+print_space_complexity(dict_example, "Dictionary")
+print_space_complexity(custom_object, "Custom Object")
+
+# Additional examples with larger structures
+large_list = list(range(1000))
+large_dict = {i: i for i in range(1000)}
+
+print_space_complexity(large_list, "Large List")
+print_space_complexity(large_dict, "Large Dictionary")
